@@ -1,0 +1,29 @@
+###
+@url = http://localhost:3000
+
+###
+# Buscar todos produtos
+GET {{url}}/products
+
+###
+# Criar um produto
+POST {{url}}/products
+Content-Type: application/json
+
+{
+    "name": "Produto 1",
+    "description": "",
+    "price": 1.54,
+    "stock": 100
+}
+
+###
+# Atualizar um produto
+PATCH {{url}}/products/1
+Content-Type: application/json
+
+{
+    "name": "Produto editado 1",
+    "description": "Descrição"
+
+}
