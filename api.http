@@ -1,29 +1,63 @@
 ###
 @url = http://localhost:3000
 
+############
+# PRODUTOS #
+############
+
 ###
 # Buscar todos produtos
-GET {{url}}/products
+GET {{url}}/produtos
 
 ###
 # Criar um produto
-POST {{url}}/products
+POST {{url}}/produtos
 Content-Type: application/json
 
 {
-    "name": "Produto 1",
-    "description": "",
-    "price": 1.54,
-    "stock": 100
+	"name": "Produto 1",
+	"description": "",
+	"price": 12.54,
+	"stock": 100
 }
 
 ###
 # Atualizar um produto
-PATCH {{url}}/products/1
+PATCH {{url}}/produtos/1
 Content-Type: application/json
 
 {
-    "name": "Produto editado 1",
-    "description": "Descrição"
-
+	"name": "Produto editado 1",
+	"description": "Descrição"
 }
+
+
+############
+# Carrinho #
+############
+
+###
+# Buscar o carrinho
+GET {{url}}/carrinho
+
+###
+# Adicionar item ao carrinho
+POST {{url}}/carrinho/item/1
+Content-Type: application/json
+
+###
+# Remover item do carrinho
+DELETE {{url}}/carrinho/item/1
+
+###
+# Atualizar quantidade de item no carrinho
+PATCH {{url}}/carrinho/atualizar-quantidade-item/2
+Content-Type: application/json
+
+{
+  "quantity": 30
+}
+
+###
+# Finalizar compra (checkout)
+POST {{url}}/carrinho/checkout
