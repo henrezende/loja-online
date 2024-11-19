@@ -5,9 +5,9 @@ import {
   UnprocessableEntityException,
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { CartItem } from 'src/cart-items/entities/cart-item.entity';
-import { Product } from 'src/products/entities/product.entity';
 import { Cart } from './entities/cart.entity';
+import { CartItem } from '../cart-items/entities/cart-item.entity';
+import { Product } from '../products/entities/product.entity';
 
 export interface ICartRepository {
   addItem(product: Product, cart: Cart): Promise<Cart>;

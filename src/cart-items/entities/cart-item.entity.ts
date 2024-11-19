@@ -1,5 +1,5 @@
-import { Cart } from 'src/cart/entities/cart.entity';
-import { Product } from 'src/products/entities/product.entity';
+import { Cart } from '../../cart/entities/cart.entity';
+import { Product } from '../../products/entities/product.entity';
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
