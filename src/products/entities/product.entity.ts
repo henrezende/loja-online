@@ -1,3 +1,4 @@
+import { UnprocessableEntityException } from '@nestjs/common';
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
@@ -28,7 +29,7 @@ export class Product {
 
   changeName(name: string) {
     if (!name) {
-      throw new Error('Name is required');
+      throw new UnprocessableEntityException('Name é obrigatório');
     }
     this.name = name;
   }
@@ -38,15 +39,15 @@ export class Product {
   }
 
   changePrice(price: number) {
-    if (!price) {
-      throw new Error('Price is required');
+    if (!price || price < 0) {
+      throw new UnprocessableEntityException('Preço inválido');
     }
     this.price = price;
   }
 
   changeStock(stock: number) {
     if (!stock || stock < 0) {
-      throw new Error('Invalid stock value');
+      throw new UnprocessableEntityException('Estoque inválido');
     }
     this.stock = stock;
   }
