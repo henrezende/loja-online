@@ -158,7 +158,7 @@ Para requisições de erro, o formato da resposta será o seguinte:
 
 Para rodar essa API, é necessário ter o Node.js instalado, além dos seguintes pacotes:
 
-- **Nest.js**: Framework para a construção da API.
+- **NestJS**: Framework para a construção da API.
 - **TypeORM**: ORM para interagir com o banco de dados.
 - **SQLite**: Banco de dados em memória para ambiente de desenvolvimento.
 
