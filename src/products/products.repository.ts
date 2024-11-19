@@ -14,22 +14,22 @@ export interface IProductRepository {
 export class ProductRepository implements IProductRepository {
   constructor(
     @InjectRepository(Product)
-    private typeOrmRepo: Repository<Product>,
+    private productRepo: Repository<Product>,
   ) {}
 
   async create(product: Product): Promise<void> {
-    await this.typeOrmRepo.save(product);
+    await this.productRepo.save(product);
   }
 
   async update(product: Product): Promise<void> {
-    await this.typeOrmRepo.update(product.id, product);
+    await this.productRepo.update(product.id, product);
   }
 
   findAll(): Promise<Product[]> {
-    return this.typeOrmRepo.find();
+    return this.productRepo.find();
   }
 
-  findById(id: number): Promise<Product> {
-    return this.typeOrmRepo.findOneOrFail({ where: { id } });
+  async findById(id: number): Promise<Product> {
+    return await this.productRepo.findOne({ where: { id } });
   }
 }

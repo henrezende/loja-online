@@ -5,6 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Product } from './entities/product.entity';
 import { CreateProductUseCase } from './usecases/create-product.usecase';
 import { UpdateProductUseCase } from './usecases/update-product.usecase';
+import { GetAllProductsUseCase } from './usecases/get-all-products.usecase';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Product])],
@@ -12,6 +13,7 @@ import { UpdateProductUseCase } from './usecases/update-product.usecase';
   providers: [
     CreateProductUseCase,
     UpdateProductUseCase,
+    GetAllProductsUseCase,
     ProductRepository,
     {
       provide: 'IProductRepository',
